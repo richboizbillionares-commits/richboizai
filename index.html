@@ -4949,6 +4949,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
         function toggleToolSelection(toolId, event) {
             const checkbox = document.getElementById(`tool-check-${toolId}`);
+            const isCurrentlyChecked = checkbox.checked;
 
             // If the checkbox itself was clicked, it's already toggled, so don't toggle again
             // Otherwise (if card was clicked), toggle the checkbox
@@ -4957,29 +4958,68 @@ Note: This email was sent by our AI assistant. A human team member will follow u
             }
 
             const index = appState.selectedTools.indexOf(toolId);
+            const maxTools = appState.planDetails[appState.selectedPlan]?.maxTools || 6;
+
+            // Check if trying to select a new tool
             if (checkbox.checked && index === -1) {
+                // Check if limit is reached
+                if (appState.selectedTools.length >= maxTools) {
+                    // Prevent selection - revert checkbox
+                    checkbox.checked = false;
+                    alert(`You can only select ${maxTools} tools with the ${appState.planDetails[appState.selectedPlan]?.name || 'selected'} plan.`);
+                    return;
+                }
                 appState.selectedTools.push(toolId);
             } else if (!checkbox.checked && index > -1) {
+                // Unselecting a tool
                 appState.selectedTools.splice(index, 1);
             }
 
             updateSelectionSummary();
+            updateToolAvailability();
             saveState();
+        }
+
+        function updateToolAvailability() {
+            const maxTools = appState.planDetails[appState.selectedPlan]?.maxTools || 6;
+            const limitReached = appState.selectedTools.length >= maxTools;
+
+            // Get all tool cards
+            const allToolIds = ['receptionist', 'website', 'booking', 'email', 'chat', 'social'];
+
+            allToolIds.forEach(toolId => {
+                const checkbox = document.getElementById(`tool-check-${toolId}`);
+                const toolCard = checkbox?.closest('.tool-card');
+                const isSelected = appState.selectedTools.includes(toolId);
+
+                if (toolCard) {
+                    if (limitReached && !isSelected) {
+                        // Gray out unselected tools
+                        toolCard.classList.add('opacity-40', 'pointer-events-none');
+                        checkbox.disabled = true;
+                    } else {
+                        // Enable all tools when under limit or when tool is selected
+                        toolCard.classList.remove('opacity-40', 'pointer-events-none');
+                        checkbox.disabled = false;
+                    }
+                }
+            });
         }
 
         function updateSelectionSummary() {
             const summary = document.getElementById('selection-summary');
             const btn = document.getElementById('continue-setup-btn');
+            const maxTools = appState.planDetails[appState.selectedPlan]?.maxTools || 6;
 
             if (appState.selectedTools.length === 0) {
-                summary.textContent = 'Select tools above to get started';
+                summary.textContent = `Select up to ${maxTools} tools to get started`;
                 btn.disabled = true;
             } else {
                 const toolNames = appState.selectedTools.map(id => {
                     const tool = TOOLS.find(t => t.id === id);
                     return tool ? tool.name : '';
                 }).join(', ');
-                summary.textContent = `${appState.selectedTools.length} tools selected: ${toolNames}`;
+                summary.textContent = `${appState.selectedTools.length} of ${maxTools} tools selected: ${toolNames}`;
                 btn.disabled = false;
             }
         }
@@ -5026,6 +5066,8 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
             // Update the summary and button state
             updateSelectionSummary();
+            // Update tool availability based on plan limits
+            updateToolAvailability();
         }
 
         function startSetupFlow() {
