@@ -3351,6 +3351,736 @@ Note: This email was sent by our AI assistant. A human team member will follow u
         </div>
     </div>
 
+    <!-- WEBSITE BUILDER SETUP SCREEN -->
+    <div id="screen-setup-website" class="screen bg-slate-50 min-h-screen">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <!-- Progress Header -->
+            <div class="bg-white rounded-xl p-6 mb-8 shadow-sm sticky top-0 z-10">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="globe" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold text-slate-900">AI Website Builder Setup</h1>
+                            <p class="text-slate-600 text-sm">Step 5 of <span id="total-website-steps">6</span></p>
+                        </div>
+                    </div>
+                    <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-2">
+                    <div class="bg-purple-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Section 1: Business Information -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="building" class="w-6 h-6 text-purple-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Business Information <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-6">Tell us about your business</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Business Name</label>
+                                <input type="text" placeholder="Acme Inc." class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:border-purple-500 focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Tagline or Slogan</label>
+                                <input type="text" placeholder="Your business in a nutshell" class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:border-purple-500 focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Business Description</label>
+                                <textarea rows="4" placeholder="Describe what your business does..." class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-purple-500 focus:outline-none"></textarea>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Industry</label>
+                                    <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                        <option>Select industry</option>
+                                        <option>Retail</option>
+                                        <option>Healthcare</option>
+                                        <option>Professional Services</option>
+                                        <option>Restaurant/Food Service</option>
+                                        <option>Real Estate</option>
+                                        <option>Technology</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Phone Number</label>
+                                    <input type="tel" placeholder="(555) 123-4567" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Website Template -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="layout" class="w-6 h-6 text-purple-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Choose Template <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-6">Select a design template (you can customize it later)</p>
+
+                        <div class="grid grid-cols-3 gap-4">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="template" value="modern" class="hidden peer">
+                                <div class="border-2 border-slate-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 rounded-lg p-4 transition-all">
+                                    <div class="bg-gradient-to-br from-purple-100 to-purple-200 h-32 rounded mb-3 flex items-center justify-center">
+                                        <i data-lucide="sparkles" class="w-8 h-8 text-purple-600"></i>
+                                    </div>
+                                    <div class="font-semibold text-slate-900">Modern</div>
+                                    <div class="text-xs text-slate-600">Clean & professional</div>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="template" value="creative" class="hidden peer">
+                                <div class="border-2 border-slate-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 rounded-lg p-4 transition-all">
+                                    <div class="bg-gradient-to-br from-pink-100 to-orange-200 h-32 rounded mb-3 flex items-center justify-center">
+                                        <i data-lucide="palette" class="w-8 h-8 text-orange-600"></i>
+                                    </div>
+                                    <div class="font-semibold text-slate-900">Creative</div>
+                                    <div class="text-xs text-slate-600">Bold & artistic</div>
+                                </div>
+                            </label>
+
+                            <label class="cursor-pointer">
+                                <input type="radio" name="template" value="minimal" class="hidden peer">
+                                <div class="border-2 border-slate-200 peer-checked:border-purple-500 peer-checked:bg-purple-50 rounded-lg p-4 transition-all">
+                                    <div class="bg-gradient-to-br from-slate-100 to-slate-200 h-32 rounded mb-3 flex items-center justify-center">
+                                        <i data-lucide="minus" class="w-8 h-8 text-slate-600"></i>
+                                    </div>
+                                    <div class="font-semibold text-slate-900">Minimal</div>
+                                    <div class="text-xs text-slate-600">Simple & elegant</div>
+                                </div>
+                            </label>
+                        </div>
+
+                        <button onclick="generateWebsiteWithAI()" class="mt-4 px-4 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg hover:from-purple-600 hover:to-pink-600 transition-all flex items-center gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            Generate Custom Design with AI
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Pages & Content -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="file-text" class="w-6 h-6 text-purple-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Pages & Content <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-4">Select which pages to include</p>
+
+                        <div class="space-y-3 mb-4">
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" checked disabled class="w-5 h-5 rounded">
+                                <div class="flex-1">
+                                    <span class="font-semibold">Home Page</span>
+                                    <span class="text-sm text-slate-600 ml-2">(Required)</span>
+                                </div>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" checked class="w-5 h-5 rounded">
+                                <span>About Us</span>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" checked class="w-5 h-5 rounded">
+                                <span>Services</span>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" checked class="w-5 h-5 rounded">
+                                <span>Contact</span>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 rounded">
+                                <span>Blog</span>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 rounded">
+                                <span>Gallery/Portfolio</span>
+                            </label>
+                            <label class="flex items-center gap-3">
+                                <input type="checkbox" class="w-5 h-5 rounded">
+                                <span>Testimonials</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Brand Colors & Logo -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="palette" class="w-6 h-6 text-purple-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Brand Colors & Logo</h2>
+                        <p class="text-slate-600 mb-6">Customize your website's appearance</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Primary Color</label>
+                                <div class="flex gap-3 items-center">
+                                    <input type="color" value="#8b5cf6" class="w-16 h-10 rounded border border-slate-300">
+                                    <span class="text-sm text-slate-600">#8b5cf6</span>
+                                    <button class="ml-auto text-sm text-purple-500 hover:text-purple-600">Use AI to suggest colors</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Secondary Color</label>
+                                <div class="flex gap-3 items-center">
+                                    <input type="color" value="#ec4899" class="w-16 h-10 rounded border border-slate-300">
+                                    <span class="text-sm text-slate-600">#ec4899</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Upload Logo (optional)</label>
+                                <div class="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center">
+                                    <i data-lucide="upload" class="w-8 h-8 text-slate-400 mx-auto mb-2"></i>
+                                    <p class="text-sm text-slate-600 mb-2">Drag & drop your logo or click to browse</p>
+                                    <input type="file" accept="image/*" class="hidden" id="logo-upload">
+                                    <button onclick="document.getElementById('logo-upload').click()" class="text-sm text-purple-500 hover:text-purple-600">Choose File</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Domain & SEO -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="search" class="w-6 h-6 text-purple-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Domain & SEO</h2>
+                        <p class="text-slate-600 mb-6">Set up your website address and search optimization</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Domain Name</label>
+                                <div class="space-y-3">
+                                    <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg cursor-pointer hover:border-purple-400">
+                                        <input type="radio" name="domain-option" value="new" class="mt-1">
+                                        <div class="flex-1">
+                                            <div class="font-semibold text-slate-900">Register new domain</div>
+                                            <div class="text-sm text-slate-600 mb-2">We'll help you find and register a domain</div>
+                                            <input type="text" placeholder="yourbusiness.com" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                        </div>
+                                    </label>
+
+                                    <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg cursor-pointer hover:border-purple-400">
+                                        <input type="radio" name="domain-option" value="existing" class="mt-1">
+                                        <div class="flex-1">
+                                            <div class="font-semibold text-slate-900">Use existing domain</div>
+                                            <div class="text-sm text-slate-600 mb-2">Connect your current domain</div>
+                                            <input type="text" placeholder="yourdomain.com" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                        </div>
+                                    </label>
+
+                                    <label class="flex items-start gap-3 p-4 border-2 border-purple-500 bg-purple-50 rounded-lg cursor-pointer">
+                                        <input type="radio" name="domain-option" value="subdomain" checked class="mt-1">
+                                        <div class="flex-1">
+                                            <div class="font-semibold text-slate-900">Use free subdomain</div>
+                                            <div class="text-sm text-slate-600 mb-2">Get started immediately with a free subdomain</div>
+                                            <div class="flex items-center gap-2">
+                                                <input type="text" placeholder="yourbusiness" class="flex-1 px-4 py-2 border border-slate-300 rounded-lg">
+                                                <span class="text-sm text-slate-600">.nexusai.site</span>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">SEO Keywords (optional)</label>
+                                <input type="text" placeholder="e.g., plumbing, emergency repair, local service" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                <p class="text-xs text-slate-500 mt-1">Separate keywords with commas</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Meta Description (optional)</label>
+                                <textarea rows="2" placeholder="Brief description for search engines..." class="w-full px-4 py-3 border border-slate-300 rounded-lg"></textarea>
+                                <p class="text-xs text-slate-500 mt-1">150-160 characters recommended</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Contact Information -->
+            <div class="bg-white rounded-xl p-8 mb-8 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="map-pin" class="w-6 h-6 text-purple-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Contact Information</h2>
+                        <p class="text-slate-600 mb-6">How can customers reach you?</p>
+
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Email</label>
+                                    <input type="email" placeholder="info@business.com" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-semibold text-slate-700 mb-2">Phone</label>
+                                    <input type="tel" placeholder="(555) 123-4567" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Address</label>
+                                <input type="text" placeholder="123 Main Street" class="w-full px-4 py-2 border border-slate-300 rounded-lg mb-2">
+                                <div class="grid grid-cols-3 gap-2">
+                                    <input type="text" placeholder="City" class="px-4 py-2 border border-slate-300 rounded-lg">
+                                    <input type="text" placeholder="State" class="px-4 py-2 border border-slate-300 rounded-lg">
+                                    <input type="text" placeholder="ZIP" class="px-4 py-2 border border-slate-300 rounded-lg">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Social Media Links (optional)</label>
+                                <div class="space-y-2">
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="facebook" class="w-5 h-5 text-slate-400"></i>
+                                        <input type="url" placeholder="facebook.com/yourpage" class="flex-1 px-4 py-2 border border-slate-300 rounded-lg">
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="instagram" class="w-5 h-5 text-slate-400"></i>
+                                        <input type="url" placeholder="instagram.com/yourprofile" class="flex-1 px-4 py-2 border border-slate-300 rounded-lg">
+                                    </div>
+                                    <div class="flex items-center gap-2">
+                                        <i data-lucide="linkedin" class="w-5 h-5 text-slate-400"></i>
+                                        <input type="url" placeholder="linkedin.com/company/yourcompany" class="flex-1 px-4 py-2 border border-slate-300 rounded-lg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Button -->
+            <div class="flex gap-4">
+                <button onclick="skipToNext()" class="px-6 py-3 text-slate-600 hover:text-slate-900">Skip this tool</button>
+                <button onclick="continueToNextSetup()" class="flex-1 px-8 py-4 bg-purple-500 text-white rounded-lg font-bold hover:bg-purple-600 transition-all">
+                    Continue to Next Tool
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOCIAL MEDIA MANAGER SETUP SCREEN -->
+    <div id="screen-setup-social" class="screen bg-slate-50 min-h-screen">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <!-- Progress Header -->
+            <div class="bg-white rounded-xl p-6 mb-8 shadow-sm sticky top-0 z-10">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="megaphone" class="w-6 h-6 text-orange-600"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold text-slate-900">AI Social Media Manager Setup</h1>
+                            <p class="text-slate-600 text-sm">Step 6 of <span id="total-social-steps">6</span></p>
+                        </div>
+                    </div>
+                    <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
+                </div>
+                <div class="w-full bg-slate-200 rounded-full h-2">
+                    <div class="bg-orange-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Section 1: Connect Platforms -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="link" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Connect Social Platforms <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-6">Link your social media accounts</p>
+
+                        <div class="space-y-3">
+                            <div class="p-4 border-2 border-slate-200 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="facebook" class="w-5 h-5 text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-slate-900">Facebook</div>
+                                        <div class="text-sm text-slate-600" id="facebook-status">Not connected</div>
+                                    </div>
+                                </div>
+                                <button onclick="connectSocialPlatform('facebook')" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all">
+                                    Connect
+                                </button>
+                            </div>
+
+                            <div class="p-4 border-2 border-slate-200 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-pink-100 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="instagram" class="w-5 h-5 text-pink-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-slate-900">Instagram</div>
+                                        <div class="text-sm text-slate-600" id="instagram-status">Not connected</div>
+                                    </div>
+                                </div>
+                                <button onclick="connectSocialPlatform('instagram')" class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-all">
+                                    Connect
+                                </button>
+                            </div>
+
+                            <div class="p-4 border-2 border-slate-200 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-sky-100 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="twitter" class="w-5 h-5 text-sky-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-slate-900">Twitter / X</div>
+                                        <div class="text-sm text-slate-600" id="twitter-status">Not connected</div>
+                                    </div>
+                                </div>
+                                <button onclick="connectSocialPlatform('twitter')" class="px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-all">
+                                    Connect
+                                </button>
+                            </div>
+
+                            <div class="p-4 border-2 border-slate-200 rounded-lg flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i data-lucide="linkedin" class="w-5 h-5 text-blue-700"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-slate-900">LinkedIn</div>
+                                        <div class="text-sm text-slate-600" id="linkedin-status">Not connected</div>
+                                    </div>
+                                </div>
+                                <button onclick="connectSocialPlatform('linkedin')" class="px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition-all">
+                                    Connect
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Content Strategy -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="target" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Content Strategy <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-6">Define your social media goals and content type</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Primary Goal</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                    <option>Select your main objective</option>
+                                    <option>Brand Awareness</option>
+                                    <option>Lead Generation</option>
+                                    <option>Customer Engagement</option>
+                                    <option>Sales & Conversions</option>
+                                    <option>Community Building</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-3">Content Types (select all that apply)</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span>Promotional posts (products/services)</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span>Educational content (tips, how-tos)</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span>Behind-the-scenes</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span>Customer testimonials</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span>News & updates</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span>User-generated content</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Brand Voice & Tone</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                    <option>Professional</option>
+                                    <option>Friendly & Casual</option>
+                                    <option>Inspirational</option>
+                                    <option>Humorous</option>
+                                    <option>Educational</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Posting Schedule -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="calendar-clock" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Posting Schedule <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-6">How often should we post on your behalf?</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-3">Posting Frequency</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="frequency" value="daily" class="hidden peer">
+                                        <div class="border-2 border-slate-200 peer-checked:border-orange-500 peer-checked:bg-orange-50 rounded-lg p-4 transition-all text-center">
+                                            <div class="font-semibold text-slate-900">Daily</div>
+                                            <div class="text-xs text-slate-600">1 post per day</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="frequency" value="3-week" class="hidden peer">
+                                        <div class="border-2 border-orange-500 bg-orange-50 rounded-lg p-4 transition-all text-center">
+                                            <div class="font-semibold text-slate-900">3x per week</div>
+                                            <div class="text-xs text-slate-600">Mon, Wed, Fri</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="frequency" value="weekly" class="hidden peer">
+                                        <div class="border-2 border-slate-200 peer-checked:border-orange-500 peer-checked:bg-orange-50 rounded-lg p-4 transition-all text-center">
+                                            <div class="font-semibold text-slate-900">Weekly</div>
+                                            <div class="text-xs text-slate-600">1 post per week</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="frequency" value="custom" class="hidden peer">
+                                        <div class="border-2 border-slate-200 peer-checked:border-orange-500 peer-checked:bg-orange-50 rounded-lg p-4 transition-all text-center">
+                                            <div class="font-semibold text-slate-900">Custom</div>
+                                            <div class="text-xs text-slate-600">Set your own</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Best Time to Post</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg mb-2">
+                                    <option>Let AI optimize posting times</option>
+                                    <option>Morning (8am - 12pm)</option>
+                                    <option>Afternoon (12pm - 5pm)</option>
+                                    <option>Evening (5pm - 9pm)</option>
+                                    <option>Custom times</option>
+                                </select>
+                                <p class="text-xs text-slate-500">AI will analyze your audience engagement patterns</p>
+                            </div>
+
+                            <div>
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" checked class="w-5 h-5 rounded">
+                                    <span class="text-sm">Require approval before posting</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Content Generation -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="sparkles" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">AI Content Generation</h2>
+                        <p class="text-slate-600 mb-6">Help AI create relevant content for your business</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Key Topics & Themes</label>
+                                <textarea rows="3" placeholder="E.g., home improvement tips, seasonal promotions, customer success stories..." class="w-full px-4 py-3 border border-slate-300 rounded-lg"></textarea>
+                                <p class="text-xs text-slate-500 mt-1">Separate topics with commas</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Hashtag Strategy</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3">
+                                        <input type="radio" name="hashtags" value="auto" checked>
+                                        <span class="text-sm">Let AI suggest relevant hashtags</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="radio" name="hashtags" value="custom">
+                                        <span class="text-sm">Use my custom hashtags only</span>
+                                    </label>
+                                </div>
+                                <input type="text" placeholder="#yourbrand #industry #relevant" class="w-full px-4 py-2 border border-slate-300 rounded-lg mt-2">
+                            </div>
+
+                            <div>
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" checked class="w-5 h-5 rounded">
+                                    <span class="text-sm">Include call-to-action in posts</span>
+                                </label>
+                            </div>
+
+                            <div>
+                                <label class="flex items-center gap-3">
+                                    <input type="checkbox" class="w-5 h-5 rounded">
+                                    <span class="text-sm">Generate image suggestions with AI</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Engagement Settings -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="heart" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Engagement Settings</h2>
+                        <p class="text-slate-600 mb-6">How should AI handle interactions?</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-3">Auto-respond to comments</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span class="text-sm">Thank users for positive comments</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span class="text-sm">Answer simple questions</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span class="text-sm">Direct complaints to support team</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Notification Settings</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                    <option>Notify me of all interactions</option>
+                                    <option>Only important mentions and messages</option>
+                                    <option>Daily summary only</option>
+                                    <option>Weekly summary only</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Alert me when:</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span class="text-sm">Negative sentiment detected</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span class="text-sm">Post reaches high engagement</span>
+                                    </label>
+                                    <label class="flex items-center gap-3">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span class="text-sm">Competitor mentioned</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Analytics & Reporting -->
+            <div class="bg-white rounded-xl p-8 mb-8 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="bar-chart" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Analytics & Reporting</h2>
+                        <p class="text-slate-600 mb-6">Track your social media performance</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Report Frequency</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                    <option>Weekly performance reports</option>
+                                    <option>Bi-weekly reports</option>
+                                    <option>Monthly reports</option>
+                                    <option>No automated reports</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-3">Metrics to track</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span class="text-sm">Engagement rate</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span class="text-sm">Follower growth</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" checked class="w-5 h-5 rounded">
+                                        <span class="text-sm">Reach & impressions</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span class="text-sm">Click-through rate</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span class="text-sm">Best performing content</span>
+                                    </label>
+                                    <label class="flex items-center gap-2">
+                                        <input type="checkbox" class="w-5 h-5 rounded">
+                                        <span class="text-sm">Audience demographics</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Send reports to:</label>
+                                <input type="email" placeholder="your@email.com" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Button -->
+            <div class="flex gap-4">
+                <button onclick="skipToNext()" class="px-6 py-3 text-slate-600 hover:text-slate-900">Skip this tool</button>
+                <button onclick="continueToDeployment()" class="flex-1 px-8 py-4 bg-orange-500 text-white rounded-lg font-bold hover:bg-orange-600 transition-all">
+                    Continue to Deployment
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- DEPLOYMENT SCREEN -->
     <div id="screen-deployment" class="screen bg-white min-h-screen">
         <div class="max-w-4xl mx-auto px-6 py-16 text-center">
@@ -4309,7 +5039,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
             saveState();
 
             // Only do setup for tools that have setup screens
-            const toolsWithSetup = ['receptionist', 'booking', 'email', 'chat'];
+            const toolsWithSetup = ['receptionist', 'booking', 'email', 'chat', 'website', 'social'];
             const selectedToolsWithSetup = appState.selectedTools.filter(id => toolsWithSetup.includes(id));
 
             if (selectedToolsWithSetup.length === 0) {
@@ -4324,7 +5054,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
         function continueToNextSetup() {
             // Only do setup for tools that have setup screens
-            const toolsWithSetup = ['receptionist', 'booking', 'email', 'chat'];
+            const toolsWithSetup = ['receptionist', 'booking', 'email', 'chat', 'website', 'social'];
             const selectedToolsWithSetup = appState.selectedTools.filter(id => toolsWithSetup.includes(id));
 
             appState.setupStep = (appState.setupStep || 0) + 1;
