@@ -2624,6 +2624,70 @@ See you soon!
                 </div>
             </div>
 
+            <!-- Section 11: Test Booking System -->
+            <div class="bg-white rounded-xl p-8 mb-8 shadow-sm border-2 border-orange-200">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="calendar-check" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Test Your Booking System</h2>
+                        <p class="text-slate-600 mb-6">Make a test booking to verify everything works</p>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                                    <span class="font-semibold text-orange-900">Get your booking page link</span>
+                                </div>
+                                <button onclick="generateBookingLink()" class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all text-sm">
+                                    Generate Booking Link
+                                </button>
+                                <div id="booking-link-display" class="hidden mt-3 p-3 bg-white border border-orange-300 rounded-lg">
+                                    <p class="text-sm text-slate-600 mb-1">Your booking page:</p>
+                                    <div class="flex items-center gap-2">
+                                        <p class="text-sm font-mono text-orange-600 flex-1">https://book.nexusai.com/yourbusiness</p>
+                                        <button onclick="copyBookingLink()" class="px-3 py-1 bg-orange-100 text-orange-600 rounded text-sm hover:bg-orange-200">
+                                            Copy
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                                    <span class="font-semibold text-slate-900">Open the link and make a test booking</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Book an appointment as if you were a customer</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                                    <span class="font-semibold text-slate-900">Check confirmation email and calendar sync</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Verify you received confirmation and appointment appears in calendar</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">4</div>
+                                    <span class="font-semibold text-slate-900">Test cancellation/rescheduling</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Try modifying or cancelling the test appointment</p>
+                            </div>
+
+                            <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                                <input type="checkbox" class="w-5 h-5 rounded mt-1">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-slate-900">I have tested the booking system and it works correctly</div>
+                                    <div class="text-sm text-slate-600">Confirmed booking, calendar sync, and email notifications</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Continue Button -->
             <div class="flex gap-4">
                 <button onclick="skipToNext()" class="px-6 py-3 text-slate-600 hover:text-slate-900">Skip this tool</button>
