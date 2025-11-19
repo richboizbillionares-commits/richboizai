@@ -2019,6 +2019,179 @@
                 </div>
             </div>
 
+            <!-- Section 7: Voice Selection -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="mic" class="w-6 h-6 text-cyan-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">AI Voice Selection <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-6">Choose the voice for your AI receptionist</p>
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-3">Voice Gender</label>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="flex items-center gap-3 p-4 border-2 border-cyan-500 bg-cyan-50 rounded-lg cursor-pointer">
+                                        <input type="radio" name="voice-gender" value="female" checked>
+                                        <span class="text-sm font-semibold">Female Voice</span>
+                                    </label>
+                                    <label class="flex items-center gap-3 p-4 border-2 border-slate-200 rounded-lg cursor-pointer hover:border-cyan-400">
+                                        <input type="radio" name="voice-gender" value="male">
+                                        <span class="text-sm font-semibold">Male Voice</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-3">Voice Style</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                    <option>Professional & Warm</option>
+                                    <option>Energetic & Friendly</option>
+                                    <option>Calm & Reassuring</option>
+                                    <option>Corporate & Formal</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-3">Accent</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                    <option>American English</option>
+                                    <option>British English</option>
+                                    <option>Australian English</option>
+                                    <option>Canadian English</option>
+                                    <option>Neutral (No Accent)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Speaking Speed</label>
+                                <input type="range" min="0.75" max="1.25" step="0.05" value="1" class="w-full">
+                                <div class="flex justify-between text-xs text-slate-500">
+                                    <span>Slower</span>
+                                    <span>Normal</span>
+                                    <span>Faster</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <i data-lucide="volume-2" class="w-5 h-5 text-blue-600"></i>
+                                    <span class="font-semibold text-blue-900">Preview Voice</span>
+                                </div>
+                                <button onclick="playVoicePreview()" class="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-all text-sm">
+                                    ▶ Listen to Sample Greeting
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8: Call Recording & Compliance -->
+            <div class="bg-white rounded-xl p-8 mb-6 shadow-sm">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="shield-check" class="w-6 h-6 text-cyan-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Call Recording & Compliance <span class="text-red-500 text-sm">Required</span></h2>
+                        <p class="text-slate-600 mb-6">Configure call recording and legal compliance</p>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                                <div class="flex items-start gap-2">
+                                    <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600 mt-0.5"></i>
+                                    <div class="text-sm text-amber-900">
+                                        <p class="font-semibold mb-1">Legal Requirement</p>
+                                        <p>Many regions require informing callers that calls are being recorded. Consult local regulations.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="flex items-center gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                                <input type="checkbox" checked class="w-5 h-5 rounded">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-slate-900">Enable Call Recording</div>
+                                    <div class="text-sm text-slate-600">Record all calls for quality assurance and training</div>
+                                </div>
+                            </label>
+
+                            <label class="flex items-center gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                                <input type="checkbox" checked class="w-5 h-5 rounded">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-slate-900">Play Recording Disclaimer</div>
+                                    <div class="text-sm text-slate-600">Inform callers that the call may be recorded</div>
+                                </div>
+                            </label>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Recording Disclaimer Message</label>
+                                <textarea rows="2" class="w-full px-4 py-3 border border-slate-300 rounded-lg">This call may be recorded for quality and training purposes.</textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-2">Call Retention Period</label>
+                                <select class="w-full px-4 py-2 border border-slate-300 rounded-lg">
+                                    <option>30 days</option>
+                                    <option>60 days</option>
+                                    <option selected>90 days</option>
+                                    <option>1 year</option>
+                                    <option>2 years</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 9: Test Your Setup -->
+            <div class="bg-white rounded-xl p-8 mb-8 shadow-sm border-2 border-cyan-200">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="phone-call" class="w-6 h-6 text-cyan-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Test Your AI Receptionist</h2>
+                        <p class="text-slate-600 mb-6">Make a test call to ensure everything works correctly</p>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-cyan-50 border border-cyan-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                                    <span class="font-semibold text-cyan-900">Request a test phone number</span>
+                                </div>
+                                <button onclick="generateTestNumber()" class="px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-all text-sm">
+                                    Generate Test Number
+                                </button>
+                                <div id="test-number-display" class="hidden mt-3 p-3 bg-white border border-cyan-300 rounded-lg">
+                                    <p class="text-sm text-slate-600 mb-1">Your test number (valid for 24 hours):</p>
+                                    <p class="text-2xl font-bold text-cyan-600">(555) 867-5309</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                                    <span class="font-semibold text-slate-900">Call the test number from your phone</span>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                                    <span class="font-semibold text-slate-900">Verify the AI responds correctly</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Test greeting, FAQ responses, and appointment booking</p>
+                            </div>
+
+                            <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                                <input type="checkbox" class="w-5 h-5 rounded mt-1">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-slate-900">I have tested the AI receptionist and it works correctly</div>
+                                    <div class="text-sm text-slate-600">Check this box after completing your test call</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Continue Button -->
             <div class="flex gap-4">
                 <button onclick="skipToNext()" class="px-6 py-3 text-slate-600 hover:text-slate-900">Skip this tool</button>
