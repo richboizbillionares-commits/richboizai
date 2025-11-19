@@ -4989,10 +4989,10 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
             allToolIds.forEach(toolId => {
                 const checkbox = document.getElementById(`tool-check-${toolId}`);
-                const toolCard = checkbox?.closest('.tool-card');
+                const toolCard = document.querySelector(`[data-tool-id="${toolId}"]`);
                 const isSelected = appState.selectedTools.includes(toolId);
 
-                if (toolCard) {
+                if (toolCard && checkbox) {
                     if (limitReached && !isSelected) {
                         // Gray out unselected tools
                         toolCard.classList.add('opacity-40', 'pointer-events-none');
