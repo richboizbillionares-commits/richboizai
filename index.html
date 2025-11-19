@@ -3639,11 +3639,78 @@ Note: This email was sent by our AI assistant. A human team member will follow u
                 </div>
             </div>
 
+            <!-- Section: Test Chat Widget -->
+            <div class="bg-white rounded-xl p-8 mb-8 shadow-sm border-2 border-pink-200">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="message-square-text" class="w-6 h-6 text-pink-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Test Your Chat Widget</h2>
+                        <p class="text-slate-600 mb-6">Try the chat widget on a test page</p>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-pink-50 border border-pink-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                                    <span class="font-semibold text-pink-900">Get your widget embed code</span>
+                                </div>
+                                <button onclick="generateWidgetCode()" class="px-4 py-2 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-all text-sm">
+                                    Generate Widget Code
+                                </button>
+                                <div id="widget-code-display" class="hidden mt-3 p-3 bg-white border border-pink-300 rounded-lg">
+                                    <p class="text-xs text-slate-600 mb-1">Copy this code to your website:</p>
+                                    <pre class="text-xs font-mono bg-slate-900 text-green-400 p-3 rounded overflow-x-auto"><code>&lt;script src="https://chat.nexusai.com/widget.js"&gt;&lt;/script&gt;</code></pre>
+                                    <button onclick="copyWidgetCode()" class="mt-2 px-3 py-1 bg-pink-100 text-pink-600 rounded text-sm hover:bg-pink-200">
+                                        Copy Code
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                                    <span class="font-semibold text-slate-900">Open the test page</span>
+                                </div>
+                                <a href="#" onclick="openTestChatPage()" class="ml-11 text-sm text-pink-600 hover:text-pink-700 underline">https://test.nexusai.com/chat-preview/your-widget</a>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                                    <span class="font-semibold text-slate-900">Test chat conversations</span>
+                                </div>
+                                <div class="ml-11 text-sm text-slate-600 space-y-1">
+                                    <p>• Verify greeting message appears</p>
+                                    <p>• Ask knowledge base questions</p>
+                                    <p>• Test visitor information collection</p>
+                                    <p>• Try offline message functionality</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">4</div>
+                                    <span class="font-semibold text-slate-900">Check widget appearance</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Verify colors, position, and branding match your settings</p>
+                            </div>
+
+                            <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                                <input type="checkbox" class="w-5 h-5 rounded mt-1">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-slate-900">I have tested the chat widget and it works correctly</div>
+                                    <div class="text-sm text-slate-600">Verified appearance, responses, and functionality</div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Continue Button -->
             <div class="flex gap-4">
                 <button onclick="skipToNext()" class="px-6 py-3 text-slate-600 hover:text-slate-900">Skip this tool</button>
-                <button onclick="continueToDeployment()" class="flex-1 px-8 py-4 bg-pink-500 text-white rounded-lg font-bold hover:bg-pink-600 transition-all">
-                    Continue to Deployment
+                <button onclick="continueToNextSetup()" class="flex-1 px-8 py-4 bg-pink-500 text-white rounded-lg font-bold hover:bg-pink-600 transition-all">
+                    Continue to Next Tool
                 </button>
             </div>
         </div>
@@ -3962,6 +4029,70 @@ Note: This email was sent by our AI assistant. A human team member will follow u
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Test Website -->
+            <div class="bg-white rounded-xl p-8 mb-8 shadow-sm border-2 border-purple-200">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="monitor" class="w-6 h-6 text-purple-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Preview Your Website</h2>
+                        <p class="text-slate-600 mb-6">Review your website before going live</p>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-purple-50 border border-purple-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                                    <span class="font-semibold text-purple-900">Generate preview link</span>
+                                </div>
+                                <button onclick="generateWebsitePreview()" class="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-all text-sm">
+                                    Create Preview
+                                </button>
+                                <div id="website-preview-display" class="hidden mt-3 p-3 bg-white border border-purple-300 rounded-lg">
+                                    <p class="text-sm text-slate-600 mb-2">Preview your website:</p>
+                                    <a href="#" onclick="openWebsitePreview()" class="text-purple-600 hover:text-purple-700 underline text-sm font-mono">https://preview.nexusai.site/yourbusiness</a>
+                                    <p class="text-xs text-slate-500 mt-2">Preview is password protected. Password: preview123</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                                    <span class="font-semibold text-slate-900">Review all pages</span>
+                                </div>
+                                <div class="ml-11 text-sm text-slate-600 space-y-1">
+                                    <p>• Check Home, About, Services, Contact pages</p>
+                                    <p>• Verify content accuracy and formatting</p>
+                                    <p>• Test navigation menu and links</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                                    <span class="font-semibold text-slate-900">Test on mobile devices</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Open preview on phone/tablet to verify responsive design</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">4</div>
+                                    <span class="font-semibold text-slate-900">Test contact forms and CTAs</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Submit test form to verify email delivery</p>
+                            </div>
+
+                            <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                                <input type="checkbox" class="w-5 h-5 rounded mt-1">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-slate-900">I have reviewed the website and it looks ready to launch</div>
+                                    <div class="text-sm text-slate-600">Checked design, content, mobile view, and functionality</div>
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -4364,6 +4495,78 @@ Note: This email was sent by our AI assistant. A human team member will follow u
                                 <label class="block text-sm font-semibold text-slate-700 mb-2">Send reports to:</label>
                                 <input type="email" placeholder="your@email.com" class="w-full px-4 py-2 border border-slate-300 rounded-lg">
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Test Social Media Setup -->
+            <div class="bg-white rounded-xl p-8 mb-8 shadow-sm border-2 border-orange-200">
+                <div class="flex items-start gap-3 mb-6">
+                    <i data-lucide="share-2" class="w-6 h-6 text-orange-600 mt-1"></i>
+                    <div class="flex-1">
+                        <h2 class="text-xl font-bold text-slate-900 mb-2">Review First AI-Generated Post</h2>
+                        <p class="text-slate-600 mb-6">Approve or edit your first social media post</p>
+
+                        <div class="space-y-4">
+                            <div class="p-4 bg-orange-50 border border-orange-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
+                                    <span class="font-semibold text-orange-900">Generate test post</span>
+                                </div>
+                                <button onclick="generateTestSocialPost()" class="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-all text-sm">
+                                    Create Sample Post
+                                </button>
+                                <div id="test-post-display" class="hidden mt-3 p-4 bg-white border border-orange-300 rounded-lg">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <i data-lucide="instagram" class="w-4 h-4 text-pink-600"></i>
+                                        <i data-lucide="facebook" class="w-4 h-4 text-blue-600"></i>
+                                        <span class="text-xs text-slate-600">Posting to 2 platforms</span>
+                                    </div>
+                                    <p class="text-sm text-slate-900 mb-2">"🎉 Excited to announce we're now open for business! Visit us today and experience top-quality service. #GrandOpening #NewBusiness"</p>
+                                    <div class="flex gap-2 mt-3">
+                                        <button class="px-3 py-1 bg-green-500 text-white rounded text-sm hover:bg-green-600">Approve</button>
+                                        <button class="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600">Edit</button>
+                                        <button class="px-3 py-1 bg-red-500 text-white rounded text-sm hover:bg-red-600">Reject</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">2</div>
+                                    <span class="font-semibold text-slate-900">Review content quality</span>
+                                </div>
+                                <div class="ml-11 text-sm text-slate-600 space-y-1">
+                                    <p>• Does the tone match your brand voice?</p>
+                                    <p>• Are hashtags relevant and appropriate?</p>
+                                    <p>• Is the message clear and engaging?</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">3</div>
+                                    <span class="font-semibold text-slate-900">Verify connected accounts</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Ensure all social platforms show as connected and ready</p>
+                            </div>
+
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">4</div>
+                                    <span class="font-semibold text-slate-900">Check posting schedule</span>
+                                </div>
+                                <p class="text-sm text-slate-600 ml-11">Review your content calendar for the next 7 days</p>
+                            </div>
+
+                            <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                                <input type="checkbox" class="w-5 h-5 rounded mt-1">
+                                <div class="flex-1">
+                                    <div class="font-semibold text-slate-900">I have reviewed and approved the AI-generated content</div>
+                                    <div class="text-sm text-slate-600">Content quality, brand voice, and posting schedule are correct</div>
+                                </div>
+                            </label>
                         </div>
                     </div>
                 </div>
