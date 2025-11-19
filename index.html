@@ -4189,8 +4189,8 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
         function selectPlan(plan) {
             appState.selectedPlan = plan;
-            // Auto-enable the 4 AI tools with full setup
-            appState.selectedTools = ['receptionist', 'booking', 'email', 'chat'];
+            // No tools are automatically selected
+            appState.selectedTools = [];
             appState.setupProgress = {};
             saveState();
             showScreen('tool-selection');
@@ -4198,8 +4198,8 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
         function goToToolSelection() {
             appState.selectedPlan = 'custom';
-            // Auto-enable the 4 AI tools with full setup
-            appState.selectedTools = ['receptionist', 'booking', 'email', 'chat'];
+            // No tools are automatically selected
+            appState.selectedTools = [];
             appState.setupProgress = {};
             saveState();
             showScreen('tool-selection');
