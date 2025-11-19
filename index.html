@@ -1877,39 +1877,123 @@
                     <div class="flex-1">
                         <h2 class="text-xl font-bold text-slate-900 mb-2">Business Hours <span class="text-red-500 text-sm">Required</span></h2>
                         <p class="text-slate-600 mb-6">Set your operating hours</p>
-                        
-                        <div class="space-y-3">
-                            <div class="grid grid-cols-4 gap-4 items-center">
-                                <div class="font-semibold text-slate-700">Monday</div>
-                                <input type="time" value="09:00" class="px-3 py-2 border border-slate-300 rounded-lg">
-                                <input type="time" value="17:00" class="px-3 py-2 border border-slate-300 rounded-lg">
-                                <label class="flex items-center gap-2">
-                                    <input type="checkbox" checked class="rounded">
-                                    <span class="text-sm">Open</span>
-                                </label>
+
+                        <div class="space-y-3" id="business-hours-container">
+                            <!-- Monday -->
+                            <div class="day-hours-row" data-day="monday">
+                                <div class="grid grid-cols-4 gap-4 items-center">
+                                    <div class="font-semibold text-slate-700">Monday</div>
+                                    <div class="hours-inputs col-span-2 flex gap-2 items-center">
+                                        <input type="time" value="09:00" class="open-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                        <span class="text-slate-500">to</span>
+                                        <input type="time" value="17:00" class="close-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                    </div>
+                                    <select class="day-status px-3 py-2 border border-slate-300 rounded-lg" onchange="toggleDayHours(this, 'monday')">
+                                        <option value="open">Open</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-4 gap-4 items-center">
-                                <div class="font-semibold text-slate-700">Tuesday</div>
-                                <input type="time" value="09:00" class="px-3 py-2 border border-slate-300 rounded-lg">
-                                <input type="time" value="17:00" class="px-3 py-2 border border-slate-300 rounded-lg">
-                                <label class="flex items-center gap-2">
-                                    <input type="checkbox" checked class="rounded">
-                                    <span class="text-sm">Open</span>
-                                </label>
+
+                            <!-- Tuesday -->
+                            <div class="day-hours-row" data-day="tuesday">
+                                <div class="grid grid-cols-4 gap-4 items-center">
+                                    <div class="font-semibold text-slate-700">Tuesday</div>
+                                    <div class="hours-inputs col-span-2 flex gap-2 items-center">
+                                        <input type="time" value="09:00" class="open-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                        <span class="text-slate-500">to</span>
+                                        <input type="time" value="17:00" class="close-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                    </div>
+                                    <select class="day-status px-3 py-2 border border-slate-300 rounded-lg" onchange="toggleDayHours(this, 'tuesday')">
+                                        <option value="open">Open</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="grid grid-cols-4 gap-4 items-center">
-                                <div class="font-semibold text-slate-700">Wednesday</div>
-                                <input type="time" value="09:00" class="px-3 py-2 border border-slate-300 rounded-lg">
-                                <input type="time" value="17:00" class="px-3 py-2 border border-slate-300 rounded-lg">
-                                <label class="flex items-center gap-2">
-                                    <input type="checkbox" checked class="rounded">
-                                    <span class="text-sm">Open</span>
-                                </label>
+
+                            <!-- Wednesday -->
+                            <div class="day-hours-row" data-day="wednesday">
+                                <div class="grid grid-cols-4 gap-4 items-center">
+                                    <div class="font-semibold text-slate-700">Wednesday</div>
+                                    <div class="hours-inputs col-span-2 flex gap-2 items-center">
+                                        <input type="time" value="09:00" class="open-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                        <span class="text-slate-500">to</span>
+                                        <input type="time" value="17:00" class="close-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                    </div>
+                                    <select class="day-status px-3 py-2 border border-slate-300 rounded-lg" onchange="toggleDayHours(this, 'wednesday')">
+                                        <option value="open">Open</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Thursday -->
+                            <div class="day-hours-row" data-day="thursday">
+                                <div class="grid grid-cols-4 gap-4 items-center">
+                                    <div class="font-semibold text-slate-700">Thursday</div>
+                                    <div class="hours-inputs col-span-2 flex gap-2 items-center">
+                                        <input type="time" value="09:00" class="open-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                        <span class="text-slate-500">to</span>
+                                        <input type="time" value="17:00" class="close-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                    </div>
+                                    <select class="day-status px-3 py-2 border border-slate-300 rounded-lg" onchange="toggleDayHours(this, 'thursday')">
+                                        <option value="open">Open</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Friday -->
+                            <div class="day-hours-row" data-day="friday">
+                                <div class="grid grid-cols-4 gap-4 items-center">
+                                    <div class="font-semibold text-slate-700">Friday</div>
+                                    <div class="hours-inputs col-span-2 flex gap-2 items-center">
+                                        <input type="time" value="09:00" class="open-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                        <span class="text-slate-500">to</span>
+                                        <input type="time" value="17:00" class="close-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                    </div>
+                                    <select class="day-status px-3 py-2 border border-slate-300 rounded-lg" onchange="toggleDayHours(this, 'friday')">
+                                        <option value="open">Open</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Saturday -->
+                            <div class="day-hours-row" data-day="saturday">
+                                <div class="grid grid-cols-4 gap-4 items-center">
+                                    <div class="font-semibold text-slate-700">Saturday</div>
+                                    <div class="hours-inputs col-span-2 flex gap-2 items-center">
+                                        <input type="time" value="10:00" class="open-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                        <span class="text-slate-500">to</span>
+                                        <input type="time" value="15:00" class="close-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                    </div>
+                                    <select class="day-status px-3 py-2 border border-slate-300 rounded-lg" onchange="toggleDayHours(this, 'saturday')">
+                                        <option value="open">Open</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Sunday -->
+                            <div class="day-hours-row" data-day="sunday">
+                                <div class="grid grid-cols-4 gap-4 items-center">
+                                    <div class="font-semibold text-slate-700">Sunday</div>
+                                    <div class="hours-inputs col-span-2 flex gap-2 items-center">
+                                        <input type="time" value="10:00" class="open-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                        <span class="text-slate-500">to</span>
+                                        <input type="time" value="15:00" class="close-time px-3 py-2 border border-slate-300 rounded-lg flex-1">
+                                    </div>
+                                    <select class="day-status px-3 py-2 border border-slate-300 rounded-lg" onchange="toggleDayHours(this, 'sunday')">
+                                        <option value="open">Open</option>
+                                        <option value="closed">Closed</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        
-                        <button class="mt-4 text-cyan-500 text-sm hover:text-cyan-600">Copy to all weekdays</button>
-                        
+
+                        <button onclick="copyToAllWeekdays()" class="mt-4 text-cyan-500 text-sm hover:text-cyan-600 font-semibold">Copy Monday's hours to all weekdays</button>
+
                         <div class="mt-6">
                             <label class="block text-sm font-semibold text-slate-700 mb-2">After-hours message</label>
                             <textarea rows="2" class="w-full px-4 py-3 border border-slate-300 rounded-lg" placeholder="We're currently closed. Our hours are..."></textarea>
@@ -5715,6 +5799,42 @@ Note: This email was sent by our AI assistant. A human team member will follow u
         function generateGreeting() {
             const textarea = document.getElementById('greeting-message');
             textarea.value = "Thank you for calling! We're excited to help you today. How may I assist you?";
+        }
+
+        function toggleDayHours(selectElement, day) {
+            const dayRow = document.querySelector(`.day-hours-row[data-day="${day}"]`);
+            const hoursInputs = dayRow.querySelector('.hours-inputs');
+
+            if (selectElement.value === 'closed') {
+                hoursInputs.style.visibility = 'hidden';
+                hoursInputs.style.opacity = '0.3';
+            } else {
+                hoursInputs.style.visibility = 'visible';
+                hoursInputs.style.opacity = '1';
+            }
+        }
+
+        function copyToAllWeekdays() {
+            const mondayRow = document.querySelector('.day-hours-row[data-day="monday"]');
+            const mondayOpenTime = mondayRow.querySelector('.open-time').value;
+            const mondayCloseTime = mondayRow.querySelector('.close-time').value;
+            const mondayStatus = mondayRow.querySelector('.day-status').value;
+
+            const weekdays = ['tuesday', 'wednesday', 'thursday', 'friday'];
+
+            weekdays.forEach(day => {
+                const dayRow = document.querySelector(`.day-hours-row[data-day="${day}"]`);
+                const openTimeInput = dayRow.querySelector('.open-time');
+                const closeTimeInput = dayRow.querySelector('.close-time');
+                const statusSelect = dayRow.querySelector('.day-status');
+
+                openTimeInput.value = mondayOpenTime;
+                closeTimeInput.value = mondayCloseTime;
+                statusSelect.value = mondayStatus;
+
+                // Trigger the toggle to update visibility
+                toggleDayHours(statusSelect, day);
+            });
         }
 
         function toggleBooking() {
