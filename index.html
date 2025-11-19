@@ -1433,93 +1433,329 @@
                 <p class="text-xl text-slate-600">Choose the tools you want to set up for your business</p>
             </div>
 
-            <!-- Tool Cards -->
-            <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <!-- Tool Cards - Row Layout with Expandable Dropdowns -->
+            <div class="space-y-4 mb-12">
                 <!-- AI Receptionist -->
-                <div class="bg-white border-2 border-slate-200 rounded-xl p-8 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleToolSelection('receptionist', event)">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="phone" class="w-6 h-6 text-cyan-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">AI Receptionist</h3>
-                                <p class="text-sm text-slate-600">24/7 phone answering</p>
-                            </div>
+                <div class="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-cyan-400 transition-all" data-tool-id="receptionist">
+                    <div class="flex items-center gap-6 cursor-pointer" onclick="toggleToolExpandedLight('receptionist', event)">
+                        <!-- Checkbox -->
+                        <div class="flex-shrink-0">
+                            <input type="checkbox" id="tool-check-receptionist"
+                                   class="w-6 h-6 accent-cyan-500 cursor-pointer"
+                                   onclick="event.stopPropagation(); toggleToolSelection('receptionist', event)"
+                                   style="display: block;">
                         </div>
-                        <input type="checkbox" id="tool-check-receptionist" class="w-6 h-6 text-cyan-500 rounded">
+
+                        <!-- Icon -->
+                        <div class="flex-shrink-0 w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="phone" class="w-6 h-6 text-cyan-600"></i>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-900">AI Receptionist</h3>
+                            <p class="text-sm text-slate-600">Answer calls 24/7, book appointments, never miss a lead</p>
+                        </div>
+
+                        <!-- Expand Arrow -->
+                        <div class="flex-shrink-0 text-slate-400 hover:text-cyan-500 transition-all">
+                            <i data-lucide="chevron-down" class="w-6 h-6 expand-arrow-light" id="arrow-receptionist"></i>
+                        </div>
                     </div>
-                    <p class="text-slate-700 mb-4">Never miss a call. AI answers, books appointments, and captures leads automatically.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Call handling</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Appointment booking</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Lead capture</span>
+
+                    <!-- Expanded Info -->
+                    <div class="tool-expanded-info" id="expanded-receptionist">
+                        <div class="bg-slate-50 border-t border-slate-200 -mx-6 -mb-6 px-6 py-6 mt-6 rounded-b-xl">
+                            <h4 class="text-slate-700 text-xs font-bold uppercase mb-3">Key Features</h4>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Natural voice conversations with customers</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Automatic appointment booking and calendar sync</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Call transcripts and lead capture</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Multi-language support</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Website Builder -->
+                <div class="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-cyan-400 transition-all" data-tool-id="website">
+                    <div class="flex items-center gap-6 cursor-pointer" onclick="toggleToolExpandedLight('website', event)">
+                        <!-- Checkbox -->
+                        <div class="flex-shrink-0">
+                            <input type="checkbox" id="tool-check-website"
+                                   class="w-6 h-6 accent-cyan-500 cursor-pointer"
+                                   onclick="event.stopPropagation(); toggleToolSelection('website', event)"
+                                   style="display: block;">
+                        </div>
+
+                        <!-- Icon -->
+                        <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="globe" class="w-6 h-6 text-purple-600"></i>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-900">AI Website Builder</h3>
+                            <p class="text-sm text-slate-600">Professional site in minutes, mobile optimized, SEO ready</p>
+                        </div>
+
+                        <!-- Expand Arrow -->
+                        <div class="flex-shrink-0 text-slate-400 hover:text-cyan-500 transition-all">
+                            <i data-lucide="chevron-down" class="w-6 h-6 expand-arrow-light" id="arrow-website"></i>
+                        </div>
+                    </div>
+
+                    <!-- Expanded Info -->
+                    <div class="tool-expanded-info" id="expanded-website">
+                        <div class="bg-slate-50 border-t border-slate-200 -mx-6 -mb-6 px-6 py-6 mt-6 rounded-b-xl">
+                            <h4 class="text-slate-700 text-xs font-bold uppercase mb-3">Key Features</h4>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>AI-powered design customization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Mobile-responsive templates</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Built-in SEO optimization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Easy drag-and-drop editing</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <!-- AI Booking System -->
-                <div class="bg-white border-2 border-slate-200 rounded-xl p-8 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleToolSelection('booking', event)">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="calendar" class="w-6 h-6 text-orange-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">AI Booking System</h3>
-                                <p class="text-sm text-slate-600">Smart scheduling</p>
-                            </div>
+                <div class="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-cyan-400 transition-all" data-tool-id="booking">
+                    <div class="flex items-center gap-6 cursor-pointer" onclick="toggleToolExpandedLight('booking', event)">
+                        <!-- Checkbox -->
+                        <div class="flex-shrink-0">
+                            <input type="checkbox" id="tool-check-booking"
+                                   class="w-6 h-6 accent-cyan-500 cursor-pointer"
+                                   onclick="event.stopPropagation(); toggleToolSelection('booking', event)"
+                                   style="display: block;">
                         </div>
-                        <input type="checkbox" id="tool-check-booking" class="w-6 h-6 text-cyan-500 rounded">
+
+                        <!-- Icon -->
+                        <div class="flex-shrink-0 w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="calendar" class="w-6 h-6 text-orange-600"></i>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-900">AI Booking System</h3>
+                            <p class="text-sm text-slate-600">Automated scheduling, calendar integration, reminder texts</p>
+                        </div>
+
+                        <!-- Expand Arrow -->
+                        <div class="flex-shrink-0 text-slate-400 hover:text-cyan-500 transition-all">
+                            <i data-lucide="chevron-down" class="w-6 h-6 expand-arrow-light" id="arrow-booking"></i>
+                        </div>
                     </div>
-                    <p class="text-slate-700 mb-4">Automated scheduling with calendar sync, reminders, and online booking portal.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Online booking</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Auto reminders</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Calendar sync</span>
+
+                    <!-- Expanded Info -->
+                    <div class="tool-expanded-info" id="expanded-booking">
+                        <div class="bg-slate-50 border-t border-slate-200 -mx-6 -mb-6 px-6 py-6 mt-6 rounded-b-xl">
+                            <h4 class="text-slate-700 text-xs font-bold uppercase mb-3">Key Features</h4>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Smart scheduling with availability detection</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Google Calendar & Outlook integration</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Automated SMS and email reminders</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Customer self-service booking portal</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <!-- AI Email Assistant -->
-                <div class="bg-white border-2 border-slate-200 rounded-xl p-8 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleToolSelection('email', event)">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">AI Email Assistant</h3>
-                                <p class="text-sm text-slate-600">Smart email management</p>
-                            </div>
+                <div class="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-cyan-400 transition-all" data-tool-id="email">
+                    <div class="flex items-center gap-6 cursor-pointer" onclick="toggleToolExpandedLight('email', event)">
+                        <!-- Checkbox -->
+                        <div class="flex-shrink-0">
+                            <input type="checkbox" id="tool-check-email"
+                                   class="w-6 h-6 accent-cyan-500 cursor-pointer"
+                                   onclick="event.stopPropagation(); toggleToolSelection('email', event)"
+                                   style="display: block;">
                         </div>
-                        <input type="checkbox" id="tool-check-email" class="w-6 h-6 text-cyan-500 rounded">
+
+                        <!-- Icon -->
+                        <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="mail" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-900">AI Email Assistant</h3>
+                            <p class="text-sm text-slate-600">Draft responses, organize inbox, follow-up automation</p>
+                        </div>
+
+                        <!-- Expand Arrow -->
+                        <div class="flex-shrink-0 text-slate-400 hover:text-cyan-500 transition-all">
+                            <i data-lucide="chevron-down" class="w-6 h-6 expand-arrow-light" id="arrow-email"></i>
+                        </div>
                     </div>
-                    <p class="text-slate-700 mb-4">AI reads, categorizes, and responds to emails automatically based on your templates.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Auto-responses</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Smart sorting</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Follow-ups</span>
+
+                    <!-- Expanded Info -->
+                    <div class="tool-expanded-info" id="expanded-email">
+                        <div class="bg-slate-50 border-t border-slate-200 -mx-6 -mb-6 px-6 py-6 mt-6 rounded-b-xl">
+                            <h4 class="text-slate-700 text-xs font-bold uppercase mb-3">Key Features</h4>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Smart email categorization and prioritization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>AI-drafted response suggestions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Automated follow-up sequences</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Sentiment analysis and insights</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
                 <!-- AI Customer Chat -->
-                <div class="bg-white border-2 border-slate-200 rounded-xl p-8 hover:border-cyan-400 transition-all cursor-pointer" onclick="toggleToolSelection('chat', event)">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="flex items-center gap-4">
-                            <div class="w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center">
-                                <i data-lucide="message-circle" class="w-6 h-6 text-pink-600"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900">AI Customer Chat</h3>
-                                <p class="text-sm text-slate-600">Website chatbot</p>
-                            </div>
+                <div class="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-cyan-400 transition-all" data-tool-id="chat">
+                    <div class="flex items-center gap-6 cursor-pointer" onclick="toggleToolExpandedLight('chat', event)">
+                        <!-- Checkbox -->
+                        <div class="flex-shrink-0">
+                            <input type="checkbox" id="tool-check-chat"
+                                   class="w-6 h-6 accent-cyan-500 cursor-pointer"
+                                   onclick="event.stopPropagation(); toggleToolSelection('chat', event)"
+                                   style="display: block;">
                         </div>
-                        <input type="checkbox" id="tool-check-chat" class="w-6 h-6 text-cyan-500 rounded">
+
+                        <!-- Icon -->
+                        <div class="flex-shrink-0 w-12 h-12 bg-pink-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="message-square" class="w-6 h-6 text-pink-600"></i>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-900">AI Customer Chat</h3>
+                            <p class="text-sm text-slate-600">Website chatbot, instant responses, lead capture</p>
+                        </div>
+
+                        <!-- Expand Arrow -->
+                        <div class="flex-shrink-0 text-slate-400 hover:text-cyan-500 transition-all">
+                            <i data-lucide="chevron-down" class="w-6 h-6 expand-arrow-light" id="arrow-chat"></i>
+                        </div>
                     </div>
-                    <p class="text-slate-700 mb-4">AI chatbot on your website answers questions, captures leads, and books appointments.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">24/7 chat support</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">Lead capture</span>
-                        <span class="px-3 py-1 bg-slate-100 text-slate-700 text-xs rounded-full">FAQ answers</span>
+
+                    <!-- Expanded Info -->
+                    <div class="tool-expanded-info" id="expanded-chat">
+                        <div class="bg-slate-50 border-t border-slate-200 -mx-6 -mb-6 px-6 py-6 mt-6 rounded-b-xl">
+                            <h4 class="text-slate-700 text-xs font-bold uppercase mb-3">Key Features</h4>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>24/7 instant customer support</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Lead qualification and capture</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Integration with CRM systems</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Custom knowledge base training</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Social Media -->
+                <div class="bg-white border-2 border-slate-200 rounded-xl p-6 hover:border-cyan-400 transition-all" data-tool-id="social">
+                    <div class="flex items-center gap-6 cursor-pointer" onclick="toggleToolExpandedLight('social', event)">
+                        <!-- Checkbox -->
+                        <div class="flex-shrink-0">
+                            <input type="checkbox" id="tool-check-social"
+                                   class="w-6 h-6 accent-cyan-500 cursor-pointer"
+                                   onclick="event.stopPropagation(); toggleToolSelection('social', event)"
+                                   style="display: block;">
+                        </div>
+
+                        <!-- Icon -->
+                        <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                            <i data-lucide="megaphone" class="w-6 h-6 text-green-600"></i>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-slate-900">AI Social Media</h3>
+                            <p class="text-sm text-slate-600">Auto-post content, schedule posts, engagement tracking</p>
+                        </div>
+
+                        <!-- Expand Arrow -->
+                        <div class="flex-shrink-0 text-slate-400 hover:text-cyan-500 transition-all">
+                            <i data-lucide="chevron-down" class="w-6 h-6 expand-arrow-light" id="arrow-social"></i>
+                        </div>
+                    </div>
+
+                    <!-- Expanded Info -->
+                    <div class="tool-expanded-info" id="expanded-social">
+                        <div class="bg-slate-50 border-t border-slate-200 -mx-6 -mb-6 px-6 py-6 mt-6 rounded-b-xl">
+                            <h4 class="text-slate-700 text-xs font-bold uppercase mb-3">Key Features</h4>
+                            <ul class="space-y-2 text-slate-600 text-sm">
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>AI-generated content suggestions</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Multi-platform scheduling</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Engagement analytics and insights</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-cyan-500 mr-2">✓</span>
+                                    <span>Hashtag and timing optimization</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -4018,9 +4254,38 @@ Note: This email was sent by our AI assistant. A human team member will follow u
             }
         }
 
+        function toggleToolExpandedLight(toolId, event) {
+            // Prevent triggering when clicking checkbox
+            if (event && event.target.closest('.flex-shrink-0:has(input[type="checkbox"])')) {
+                return;
+            }
+
+            const expandedSection = document.getElementById(`expanded-${toolId}`);
+            const arrow = document.getElementById(`arrow-${toolId}`);
+
+            if (!expandedSection || !arrow) return;
+
+            const isExpanded = expandedSection.classList.contains('expanded');
+
+            if (isExpanded) {
+                // Collapse
+                expandedSection.classList.remove('expanded');
+                arrow.classList.remove('rotated');
+            } else {
+                // Expand
+                expandedSection.classList.add('expanded');
+                arrow.classList.add('rotated');
+            }
+
+            // Re-initialize Lucide icons after DOM changes
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
         function syncToolSelectionCheckboxes() {
             // Sync all checkboxes with appState.selectedTools
-            const allToolIds = ['receptionist', 'booking', 'email', 'chat'];
+            const allToolIds = ['receptionist', 'website', 'booking', 'email', 'chat', 'social'];
 
             allToolIds.forEach(toolId => {
                 const checkbox = document.getElementById(`tool-check-${toolId}`);
