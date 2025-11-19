@@ -1789,7 +1789,7 @@
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold text-slate-900">AI Receptionist Setup</h1>
-                            <p class="text-slate-600 text-sm" id="receptionist-progress">Step 1 of <span id="total-setup-steps">4</span></p>
+                            <p class="text-slate-600 text-sm" id="receptionist-progress">Step 1 of 6</p>
                         </div>
                     </div>
                     <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
@@ -2043,7 +2043,7 @@
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold text-slate-900">AI Booking System Setup</h1>
-                            <p class="text-slate-600 text-sm">Step 2 of <span id="total-booking-steps">4</span></p>
+                            <p class="text-slate-600 text-sm" id="booking-progress">Step 2 of 6</p>
                         </div>
                     </div>
                     <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
@@ -2475,7 +2475,7 @@ See you soon!
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold text-slate-900">AI Email Assistant Setup</h1>
-                            <p class="text-slate-600 text-sm">Step 3 of <span id="total-email-steps">4</span></p>
+                            <p class="text-slate-600 text-sm" id="email-progress">Step 3 of 6</p>
                         </div>
                     </div>
                     <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
@@ -2855,7 +2855,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold text-slate-900">AI Customer Chat Setup</h1>
-                            <p class="text-slate-600 text-sm">Step 4 of <span id="total-chat-steps">4</span></p>
+                            <p class="text-slate-600 text-sm" id="chat-progress">Step 4 of 6</p>
                         </div>
                     </div>
                     <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
@@ -3363,7 +3363,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold text-slate-900">AI Website Builder Setup</h1>
-                            <p class="text-slate-600 text-sm">Step 5 of <span id="total-website-steps">6</span></p>
+                            <p class="text-slate-600 text-sm" id="website-progress">Step 5 of 6</p>
                         </div>
                     </div>
                     <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
@@ -3691,7 +3691,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
                         </div>
                         <div>
                             <h1 class="text-2xl font-bold text-slate-900">AI Social Media Manager Setup</h1>
-                            <p class="text-slate-600 text-sm">Step 6 of <span id="total-social-steps">6</span></p>
+                            <p class="text-slate-600 text-sm" id="social-progress">Step 6 of 6</p>
                         </div>
                     </div>
                     <button onclick="saveDraftAndExit()" class="text-slate-600 hover:text-slate-900 text-sm">Save & Exit</button>
@@ -5038,9 +5038,10 @@ Note: This email was sent by our AI assistant. A human team member will follow u
             appState.setupProgress = {};
             saveState();
 
-            // Only do setup for tools that have setup screens
+            // Only do setup for tools that have setup screens, in the correct order
             const toolsWithSetup = ['receptionist', 'booking', 'email', 'chat', 'website', 'social'];
-            const selectedToolsWithSetup = appState.selectedTools.filter(id => toolsWithSetup.includes(id));
+            // Sort selected tools according to the order in toolsWithSetup
+            const selectedToolsWithSetup = toolsWithSetup.filter(id => appState.selectedTools.includes(id));
 
             if (selectedToolsWithSetup.length === 0) {
                 // No tools need setup, go straight to deployment
@@ -5048,23 +5049,43 @@ Note: This email was sent by our AI assistant. A human team member will follow u
             } else {
                 // Go to first selected tool's setup
                 const firstTool = selectedToolsWithSetup[0];
+                updateSetupProgress(firstTool, 1, selectedToolsWithSetup.length);
                 showScreen(`setup-${firstTool}`);
             }
         }
 
         function continueToNextSetup() {
-            // Only do setup for tools that have setup screens
+            // Only do setup for tools that have setup screens, in the correct order
             const toolsWithSetup = ['receptionist', 'booking', 'email', 'chat', 'website', 'social'];
-            const selectedToolsWithSetup = appState.selectedTools.filter(id => toolsWithSetup.includes(id));
+            // Sort selected tools according to the order in toolsWithSetup
+            const selectedToolsWithSetup = toolsWithSetup.filter(id => appState.selectedTools.includes(id));
 
             appState.setupStep = (appState.setupStep || 0) + 1;
 
             if (appState.setupStep < selectedToolsWithSetup.length) {
                 const nextTool = selectedToolsWithSetup[appState.setupStep];
+                updateSetupProgress(nextTool, appState.setupStep + 1, selectedToolsWithSetup.length);
                 saveState();
                 showScreen(`setup-${nextTool}`);
             } else {
                 continueToDeployment();
+            }
+        }
+
+        function updateSetupProgress(toolId, currentStep, totalSteps) {
+            // Update the progress text for the current setup screen
+            const progressSelectors = {
+                'receptionist': 'receptionist-progress',
+                'booking': 'booking-progress',
+                'email': 'email-progress',
+                'chat': 'chat-progress',
+                'website': 'website-progress',
+                'social': 'social-progress'
+            };
+
+            const progressElement = document.getElementById(progressSelectors[toolId]);
+            if (progressElement) {
+                progressElement.textContent = `Step ${currentStep} of ${totalSteps}`;
             }
         }
 
