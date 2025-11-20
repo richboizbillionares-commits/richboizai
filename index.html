@@ -2190,7 +2190,7 @@
                                 </div>
                             </div>
 
-                            <label class="flex items-center gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                            <label id="enable-call-recording-label" class="flex items-center gap-3 p-4 border-2 border-cyan-500 rounded-lg transition-colors">
                                 <input type="checkbox" id="enable-call-recording" checked class="w-5 h-5 rounded">
                                 <div class="flex-1">
                                     <div class="font-semibold text-slate-900">Enable Call Recording</div>
@@ -2198,7 +2198,7 @@
                                 </div>
                             </label>
 
-                            <label class="flex items-center gap-3 p-4 border-2 border-slate-200 rounded-lg">
+                            <label id="play-recording-disclaimer-label" class="flex items-center gap-3 p-4 border-2 border-cyan-500 rounded-lg transition-colors">
                                 <input type="checkbox" id="play-recording-disclaimer" checked class="w-5 h-5 rounded">
                                 <div class="flex-1">
                                     <div class="font-semibold text-slate-900">Play Recording Disclaimer</div>
@@ -8281,9 +8281,24 @@ Thank you for choosing NexusAI!
 
             // Handle recording disclaimer toggle
             const playDisclaimerCheckbox = document.getElementById('play-recording-disclaimer');
+            const playDisclaimerLabel = document.getElementById('play-recording-disclaimer-label');
             const disclaimerMessage = document.getElementById('recording-disclaimer-message');
+            const enableRecordingCheckbox = document.getElementById('enable-call-recording');
+            const enableRecordingLabel = document.getElementById('enable-call-recording-label');
 
-            if (playDisclaimerCheckbox && disclaimerMessage) {
+            // Function to toggle border style based on checkbox state
+            function toggleBorderStyle(checkbox, label) {
+                if (checkbox.checked) {
+                    label.classList.remove('border-slate-200');
+                    label.classList.add('border-cyan-500');
+                } else {
+                    label.classList.remove('border-cyan-500');
+                    label.classList.add('border-slate-200');
+                }
+            }
+
+            // Handle Play Recording Disclaimer checkbox
+            if (playDisclaimerCheckbox && disclaimerMessage && playDisclaimerLabel) {
                 // Function to toggle disclaimer message visibility
                 function toggleDisclaimerMessage() {
                     if (playDisclaimerCheckbox.checked) {
@@ -8295,9 +8310,24 @@ Thank you for choosing NexusAI!
 
                 // Set initial state
                 toggleDisclaimerMessage();
+                toggleBorderStyle(playDisclaimerCheckbox, playDisclaimerLabel);
 
                 // Add event listener
-                playDisclaimerCheckbox.addEventListener('change', toggleDisclaimerMessage);
+                playDisclaimerCheckbox.addEventListener('change', function() {
+                    toggleDisclaimerMessage();
+                    toggleBorderStyle(playDisclaimerCheckbox, playDisclaimerLabel);
+                });
+            }
+
+            // Handle Enable Call Recording checkbox
+            if (enableRecordingCheckbox && enableRecordingLabel) {
+                // Set initial state
+                toggleBorderStyle(enableRecordingCheckbox, enableRecordingLabel);
+
+                // Add event listener
+                enableRecordingCheckbox.addEventListener('change', function() {
+                    toggleBorderStyle(enableRecordingCheckbox, enableRecordingLabel);
+                });
             }
         });
     </script>
