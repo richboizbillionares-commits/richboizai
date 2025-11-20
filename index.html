@@ -2043,12 +2043,15 @@
                     <div class="flex-1">
                         <h2 class="text-xl font-bold text-slate-900 mb-2">Appointment Booking</h2>
                         <p class="text-slate-600 mb-4">Allow AI to book appointments during calls</p>
-                        
-                        <label class="flex items-center gap-3 mb-4">
-                            <input type="checkbox" id="enable-booking" class="w-5 h-5 rounded" onchange="toggleBooking()">
-                            <span class="font-semibold text-slate-900">Enable appointment booking</span>
+
+                        <label id="enable-booking-label" class="flex items-center gap-3 p-4 border-2 border-slate-200 rounded-lg cursor-pointer hover:border-slate-300 transition-colors mb-4">
+                            <input type="checkbox" id="enable-booking" class="w-5 h-5 rounded cursor-pointer" onchange="toggleBooking()">
+                            <div class="flex-1">
+                                <div class="font-semibold text-slate-900">Enable appointment booking</div>
+                                <div class="text-sm text-slate-600">Allow the AI to schedule appointments with your calendar</div>
+                            </div>
                         </label>
-                        
+
                         <div id="booking-integration" class="hidden">
                             <button onclick="connectCalendar('google')" class="w-full px-6 py-3 bg-white border-2 border-slate-300 rounded-lg hover:border-cyan-400 transition-all flex items-center justify-center gap-3">
                                 <i data-lucide="calendar" class="w-5 h-5"></i>
@@ -5849,10 +5852,18 @@ Note: This email was sent by our AI assistant. A human team member will follow u
         function toggleBooking() {
             const enabled = document.getElementById('enable-booking').checked;
             const integration = document.getElementById('booking-integration');
+            const label = document.getElementById('enable-booking-label');
+
             if (enabled) {
                 integration.classList.remove('hidden');
+                // Update border to cyan when checked
+                label.classList.remove('border-slate-200');
+                label.classList.add('border-cyan-500');
             } else {
                 integration.classList.add('hidden');
+                // Update border to gray when unchecked
+                label.classList.remove('border-cyan-500');
+                label.classList.add('border-slate-200');
             }
         }
 
