@@ -2235,7 +2235,7 @@
                         <p class="text-slate-600 mb-6">Make a test call to ensure everything works correctly</p>
 
                         <div class="space-y-4">
-                            <div class="p-4 bg-cyan-50 border border-cyan-200 rounded-lg">
+                            <div id="test-step-1" class="p-4 bg-cyan-50 border border-cyan-200 rounded-lg">
                                 <div class="flex items-center gap-3 mb-3">
                                     <div class="w-8 h-8 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold">1</div>
                                     <span class="font-semibold text-cyan-900">Request a test phone number</span>
@@ -2245,27 +2245,36 @@
                                 </button>
                                 <div id="test-number-display" class="hidden mt-3 p-3 bg-white border border-cyan-300 rounded-lg">
                                     <p class="text-sm text-slate-600 mb-1">Your test number (valid for 24 hours):</p>
-                                    <p class="text-2xl font-bold text-cyan-600">(555) 867-5309</p>
+                                    <p class="text-2xl font-bold text-cyan-600 mb-2">(555) 867-5309</p>
+                                    <button onclick="copyTestNumber()" class="px-3 py-1.5 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-all text-sm">
+                                        Copy Number
+                                    </button>
                                 </div>
                             </div>
 
-                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-                                <div class="flex items-center gap-3 mb-2">
+                            <div id="test-step-2" class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-3">
                                     <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">2</div>
                                     <span class="font-semibold text-slate-900">Call the test number from your phone</span>
                                 </div>
+                                <button onclick="markStepComplete(2)" class="px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-all text-sm">
+                                    Mark as Called
+                                </button>
                             </div>
 
-                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
-                                <div class="flex items-center gap-3 mb-2">
+                            <div id="test-step-3" class="p-4 bg-slate-50 border border-slate-200 rounded-lg">
+                                <div class="flex items-center gap-3 mb-3">
                                     <div class="w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center text-white font-bold">3</div>
                                     <span class="font-semibold text-slate-900">Verify the AI responds correctly</span>
                                 </div>
-                                <p class="text-sm text-slate-600 ml-11">Test greeting, FAQ responses, and appointment booking</p>
+                                <p class="text-sm text-slate-600 mb-3 ml-11">Test greeting, FAQ responses, and appointment booking</p>
+                                <button onclick="markStepComplete(3)" class="px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition-all text-sm ml-11">
+                                    Mark as Verified
+                                </button>
                             </div>
 
-                            <label class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg">
-                                <input type="checkbox" class="w-5 h-5 rounded mt-1">
+                            <label id="test-confirmation-label" class="flex items-start gap-3 p-4 border-2 border-slate-200 rounded-lg cursor-pointer hover:border-slate-300 transition-colors">
+                                <input type="checkbox" id="test-confirmation-checkbox" class="w-5 h-5 rounded mt-1 cursor-pointer accent-cyan-500">
                                 <div class="flex-1">
                                     <div class="font-semibold text-slate-900">I have tested the AI receptionist and it works correctly</div>
                                     <div class="text-sm text-slate-600">Check this box after completing your test call</div>
@@ -5897,6 +5906,69 @@ Note: This email was sent by our AI assistant. A human team member will follow u
             }
         }
 
+        // Test Your Setup Functions
+        function generateTestNumber() {
+            const display = document.getElementById('test-number-display');
+            const button = event.target;
+
+            // Generate a random test number
+            const areaCode = Math.floor(Math.random() * 900) + 100;
+            const prefix = Math.floor(Math.random() * 900) + 100;
+            const lineNumber = Math.floor(Math.random() * 9000) + 1000;
+            const testNumber = `(${areaCode}) ${prefix}-${lineNumber}`;
+
+            // Update display
+            const numberElement = display.querySelector('.text-2xl');
+            if (numberElement) {
+                numberElement.textContent = testNumber;
+            }
+
+            // Show the display
+            display.classList.remove('hidden');
+
+            // Update button text
+            button.textContent = 'Generate New Number';
+            button.classList.add('bg-cyan-600');
+        }
+
+        function copyTestNumber() {
+            const numberElement = document.querySelector('#test-number-display .text-2xl');
+            if (numberElement) {
+                const number = numberElement.textContent;
+                navigator.clipboard.writeText(number).then(() => {
+                    const button = event.target;
+                    const originalText = button.textContent;
+                    button.textContent = 'Copied!';
+                    button.classList.add('bg-green-500');
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        button.classList.remove('bg-green-500');
+                    }, 2000);
+                });
+            }
+        }
+
+        function markStepComplete(stepNumber) {
+            const step = document.getElementById(`test-step-${stepNumber}`);
+            if (step) {
+                const circle = step.querySelector('.w-8.h-8');
+                const button = event.target;
+
+                // Update circle styling
+                circle.classList.remove('bg-slate-400');
+                circle.classList.add('bg-green-500');
+
+                // Update circle content to checkmark
+                circle.innerHTML = '✓';
+
+                // Update button
+                button.textContent = 'Completed ✓';
+                button.classList.add('bg-green-500', 'cursor-default');
+                button.classList.remove('bg-cyan-500', 'hover:bg-cyan-600');
+                button.disabled = true;
+            }
+        }
+
         function goToReview() {
             if (!validateConfigForm()) {
                 return;
@@ -8328,6 +8400,26 @@ Thank you for choosing NexusAI!
                 enableRecordingCheckbox.addEventListener('change', function() {
                     toggleBorderStyle(enableRecordingCheckbox, enableRecordingLabel);
                 });
+            }
+
+            // Handle Test Confirmation checkbox
+            const testConfirmationCheckbox = document.getElementById('test-confirmation-checkbox');
+            const testConfirmationLabel = document.getElementById('test-confirmation-label');
+
+            if (testConfirmationCheckbox && testConfirmationLabel) {
+                // Function to toggle border style based on checkbox state
+                function toggleTestConfirmationBorder() {
+                    if (testConfirmationCheckbox.checked) {
+                        testConfirmationLabel.classList.remove('border-slate-200');
+                        testConfirmationLabel.classList.add('border-green-500', 'bg-green-50');
+                    } else {
+                        testConfirmationLabel.classList.remove('border-green-500', 'bg-green-50');
+                        testConfirmationLabel.classList.add('border-slate-200');
+                    }
+                }
+
+                // Add event listener
+                testConfirmationCheckbox.addEventListener('change', toggleTestConfirmationBorder);
             }
         });
     </script>
