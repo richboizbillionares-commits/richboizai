@@ -2367,7 +2367,7 @@
                         <h2 class="text-xl font-bold text-slate-900 mb-2">Appointment Types <span class="text-red-500 text-sm">Required</span></h2>
                         <p class="text-slate-600 mb-4">Define the services customers can book</p>
 
-                        <div class="space-y-3 mb-4">
+                        <div id="appointment-types-list" class="space-y-3 mb-4">
                             <div class="p-4 border-2 border-slate-200 rounded-lg">
                                 <div class="grid grid-cols-2 gap-4 mb-3">
                                     <div>
@@ -2618,7 +2618,7 @@
                         <h2 class="text-xl font-bold text-slate-900 mb-2">Team Assignment</h2>
                         <p class="text-slate-600 mb-6">Assign appointments to team members</p>
 
-                        <div class="space-y-3 mb-4">
+                        <div id="team-members-list" class="space-y-3 mb-4">
                             <div class="p-4 border-2 border-slate-200 rounded-lg">
                                 <div class="flex items-center justify-between mb-2">
                                     <div class="flex items-center gap-3">
@@ -2655,7 +2655,7 @@
                         <h2 class="text-xl font-bold text-slate-900 mb-2">Custom Fields</h2>
                         <p class="text-slate-600 mb-6">Collect additional information during booking</p>
 
-                        <div class="space-y-3 mb-4">
+                        <div id="custom-fields-list" class="space-y-3 mb-4">
                             <div class="p-4 border-2 border-slate-200 rounded-lg">
                                 <div class="grid grid-cols-2 gap-4 mb-2">
                                     <input type="text" placeholder="Field label" value="Special requests" class="px-3 py-2 border border-slate-300 rounded-lg">
@@ -6020,7 +6020,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
         }
 
         function addAppointmentType() {
-            const container = document.querySelector('#screen-setup-booking .space-y-3.mb-4');
+            const container = document.getElementById('appointment-types-list');
 
             const appointmentType = document.createElement('div');
             appointmentType.className = 'appointment-type-item p-4 border-2 border-slate-200 rounded-lg';
@@ -6089,7 +6089,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
         }
 
         function addTeamMember() {
-            const container = document.querySelector('#screen-setup-booking .space-y-3.mb-4:has(.p-4.border-2)');
+            const container = document.getElementById('team-members-list');
 
             const teamMember = document.createElement('div');
             teamMember.className = 'team-member-item p-4 border-2 border-slate-200 rounded-lg';
@@ -6124,7 +6124,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
         }
 
         function addCustomField() {
-            const container = document.querySelector('#screen-setup-booking .space-y-3.mb-4:last-of-type');
+            const container = document.getElementById('custom-fields-list');
 
             const customField = document.createElement('div');
             customField.className = 'custom-field-item p-4 border-2 border-slate-200 rounded-lg';
