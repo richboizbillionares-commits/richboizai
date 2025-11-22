@@ -6599,6 +6599,7 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
             if (step) {
                 const circle = step.querySelector('.w-8.h-8');
+                const button = event.target;
 
                 // Update circle styling
                 circle.classList.remove('bg-slate-400');
@@ -6606,6 +6607,12 @@ Note: This email was sent by our AI assistant. A human team member will follow u
 
                 // Update circle content to checkmark
                 circle.innerHTML = '✓';
+
+                // Update button
+                button.textContent = 'Completed ✓';
+                button.classList.add('bg-green-500', 'cursor-default');
+                button.classList.remove('bg-orange-500', 'hover:bg-orange-600');
+                button.disabled = true;
             }
         }
 
