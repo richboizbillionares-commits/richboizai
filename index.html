@@ -2461,39 +2461,115 @@
 
                         <div class="mb-6">
                             <h3 class="font-semibold text-slate-900 mb-3">Customer Reminders</h3>
-                            <div class="space-y-2">
-                                <label class="flex items-center gap-3">
-                                    <input type="checkbox" checked class="w-5 h-5 rounded">
-                                    <span>24 hours before appointment (Email & SMS)</span>
-                                </label>
-                                <label class="flex items-center gap-3">
-                                    <input type="checkbox" checked class="w-5 h-5 rounded">
-                                    <span>1 hour before appointment (SMS)</span>
-                                </label>
-                                <label class="flex items-center gap-3">
-                                    <input type="checkbox" class="w-5 h-5 rounded">
-                                    <span>Follow-up after appointment (Email)</span>
-                                </label>
+                            <div class="space-y-3">
+                                <!-- 24 hours reminder -->
+                                <div class="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <div class="custom-checkbox" onclick="toggleNotification(this, 'customer-24h')">
+                                            <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-slate-900">24 hours before appointment</div>
+                                            <div class="text-sm text-slate-600" id="customer-24h-details">Email & SMS</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="editNotification('customer-24h')" class="px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
+                                        <i data-lucide="settings" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+
+                                <!-- 1 hour reminder -->
+                                <div class="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <div class="custom-checkbox" onclick="toggleNotification(this, '1h-reminder')">
+                                            <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-slate-900">1 hour before appointment</div>
+                                            <div class="text-sm text-slate-600" id="1h-reminder-details">SMS</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="editNotification('1h-reminder')" class="px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
+                                        <i data-lucide="settings" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Follow-up reminder -->
+                                <div class="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <div class="custom-checkbox inactive" onclick="toggleNotification(this, 'followup')">
+                                            <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-slate-900">Follow-up after appointment</div>
+                                            <div class="text-sm text-slate-600" id="followup-details">Email • 24 hours after</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="editNotification('followup')" class="px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
+                                        <i data-lucide="settings" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
 
                         <div>
                             <h3 class="font-semibold text-slate-900 mb-3">Business Notifications</h3>
-                            <div class="space-y-2">
-                                <label class="flex items-center gap-3">
-                                    <input type="checkbox" checked class="w-5 h-5 rounded">
-                                    <span>New booking confirmation</span>
-                                </label>
-                                <label class="flex items-center gap-3">
-                                    <input type="checkbox" checked class="w-5 h-5 rounded">
-                                    <span>Booking cancellation</span>
-                                </label>
-                                <label class="flex items-center gap-3">
-                                    <input type="checkbox" class="w-5 h-5 rounded">
-                                    <span>Daily booking summary</span>
-                                </label>
+                            <div class="space-y-3">
+                                <!-- New booking -->
+                                <div class="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <div class="custom-checkbox" onclick="toggleNotification(this, 'new-booking')">
+                                            <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-slate-900">New booking confirmation</div>
+                                            <div class="text-sm text-slate-600" id="new-booking-details">Email & SMS • Instant</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="editNotification('new-booking')" class="px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
+                                        <i data-lucide="settings" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Cancellation -->
+                                <div class="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <div class="custom-checkbox" onclick="toggleNotification(this, 'cancellation')">
+                                            <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-slate-900">Booking cancellation</div>
+                                            <div class="text-sm text-slate-600" id="cancellation-details">Email & SMS • Instant</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="editNotification('cancellation')" class="px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
+                                        <i data-lucide="settings" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+
+                                <!-- Daily summary -->
+                                <div class="flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <div class="custom-checkbox inactive" onclick="toggleNotification(this, 'daily-summary')">
+                                            <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                                        </div>
+                                        <div>
+                                            <div class="font-medium text-slate-900">Daily booking summary</div>
+                                            <div class="text-sm text-slate-600" id="daily-summary-details">Email • 6:00 PM daily</div>
+                                        </div>
+                                    </div>
+                                    <button onclick="editNotification('daily-summary')" class="px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
+                                        <i data-lucide="settings" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
+
+                        <!-- Add custom notification -->
+                        <button onclick="addCustomNotification()" class="mt-6 w-full px-4 py-3 border-2 border-dashed border-slate-300 text-slate-600 rounded-lg hover:border-orange-400 hover:text-orange-600 hover:bg-orange-50 transition-all">
+                            <i data-lucide="plus" class="w-4 h-4 inline-block mr-2"></i>
+                            Add Custom Notification
+                        </button>
                     </div>
                 </div>
             </div>
@@ -6186,6 +6262,335 @@ Note: This email was sent by our AI assistant. A human team member will follow u
                     }, 2000);
                 });
             }
+        }
+
+        // Notification functions
+        function toggleNotification(checkbox, notificationId) {
+            if (checkbox.classList.contains('inactive')) {
+                checkbox.classList.remove('inactive');
+                checkbox.style.backgroundColor = '#ea580c';
+                checkbox.style.borderColor = '#ea580c';
+
+                // Add visual feedback
+                checkbox.style.transform = 'scale(1.1)';
+                setTimeout(() => {
+                    checkbox.style.transform = 'scale(1)';
+                }, 200);
+            } else {
+                checkbox.classList.add('inactive');
+                checkbox.style.backgroundColor = 'transparent';
+                checkbox.style.borderColor = '#334155';
+
+                // Add visual feedback
+                checkbox.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    checkbox.style.transform = 'scale(1)';
+                }, 200);
+            }
+
+            // Reinitialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function editNotification(notificationId) {
+            // Create modal for editing notification
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 fade-in';
+            modal.onclick = (e) => {
+                if (e.target === modal) modal.remove();
+            };
+
+            const detailsElement = document.getElementById(notificationId + '-details');
+            const currentDetails = detailsElement ? detailsElement.textContent : '';
+
+            // Parse current settings
+            const hasEmail = currentDetails.includes('Email');
+            const hasSMS = currentDetails.includes('SMS');
+
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 shadow-2xl" onclick="event.stopPropagation()">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900">Configure Notification</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-slate-400 hover:text-slate-600">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Delivery Method</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" ${hasEmail ? 'checked' : ''} class="w-5 h-5 rounded" id="notif-email-${notificationId}">
+                                    <div>
+                                        <div class="font-medium text-slate-900">Email</div>
+                                        <div class="text-sm text-slate-600">Send notification via email</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" ${hasSMS ? 'checked' : ''} class="w-5 h-5 rounded" id="notif-sms-${notificationId}">
+                                    <div>
+                                        <div class="font-medium text-slate-900">SMS</div>
+                                        <div class="text-sm text-slate-600">Send notification via text message</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Timing</label>
+                            <select class="w-full px-4 py-3 border border-slate-300 rounded-lg" id="notif-timing-${notificationId}">
+                                <option>Instant</option>
+                                <option>15 minutes before</option>
+                                <option>30 minutes before</option>
+                                <option>1 hour before</option>
+                                <option>2 hours before</option>
+                                <option>24 hours before</option>
+                                <option>1 hour after</option>
+                                <option>24 hours after</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Message Template</label>
+                            <textarea class="w-full px-4 py-3 border border-slate-300 rounded-lg resize-none" rows="4" placeholder="Enter your custom message template...">${getDefaultTemplate(notificationId)}</textarea>
+                        </div>
+
+                        <div class="flex gap-3 pt-4">
+                            <button onclick="saveNotificationSettings('${notificationId}')" class="flex-1 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all font-semibold">
+                                Save Changes
+                            </button>
+                            <button onclick="this.closest('.fixed').remove()" class="px-6 py-3 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-all font-semibold">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Reinitialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function getDefaultTemplate(notificationId) {
+            const templates = {
+                'customer-24h': 'Hi {customer_name}, this is a reminder that you have an appointment with {business_name} tomorrow at {appointment_time}. Reply CONFIRM to confirm or CANCEL to cancel.',
+                '1h-reminder': 'Hi {customer_name}, your appointment with {business_name} is in 1 hour at {appointment_time}. See you soon!',
+                'followup': 'Hi {customer_name}, thank you for visiting {business_name}! We hope you enjoyed your {service_name}. Please let us know if you have any feedback.',
+                'new-booking': 'New booking confirmed! {customer_name} has booked {service_name} for {appointment_time}.',
+                'cancellation': 'Booking cancelled: {customer_name} has cancelled their {service_name} appointment scheduled for {appointment_time}.',
+                'daily-summary': 'Daily Summary for {date}: You have {count} appointments today.'
+            };
+            return templates[notificationId] || 'Enter your message template here...';
+        }
+
+        function saveNotificationSettings(notificationId) {
+            const emailChecked = document.getElementById(`notif-email-${notificationId}`).checked;
+            const smsChecked = document.getElementById(`notif-sms-${notificationId}`).checked;
+            const timing = document.getElementById(`notif-timing-${notificationId}`).value;
+
+            // Build details text
+            let details = [];
+            if (emailChecked) details.push('Email');
+            if (smsChecked) details.push('SMS');
+
+            let detailsText = details.join(' & ');
+            if (timing !== 'Instant') {
+                detailsText += ' • ' + timing;
+            } else {
+                detailsText += ' • Instant';
+            }
+
+            // Update the display
+            const detailsElement = document.getElementById(notificationId + '-details');
+            if (detailsElement) {
+                detailsElement.textContent = detailsText;
+            }
+
+            // Close modal
+            document.querySelector('.fixed.inset-0').remove();
+
+            // Show success feedback
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg fade-in z-50';
+            notification.textContent = 'Notification settings saved!';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        function addCustomNotification() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 fade-in';
+            modal.onclick = (e) => {
+                if (e.target === modal) modal.remove();
+            };
+
+            modal.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 shadow-2xl" onclick="event.stopPropagation()">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900">Create Custom Notification</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="text-slate-400 hover:text-slate-600">
+                            <i data-lucide="x" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Notification Name</label>
+                            <input type="text" placeholder="e.g., Pre-appointment preparation reminder" class="w-full px-4 py-3 border border-slate-300 rounded-lg" id="custom-notif-name">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Type</label>
+                            <select class="w-full px-4 py-3 border border-slate-300 rounded-lg" id="custom-notif-type">
+                                <option value="customer">Customer Reminder</option>
+                                <option value="business">Business Notification</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Delivery Method</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" class="w-5 h-5 rounded" id="custom-notif-email">
+                                    <div>
+                                        <div class="font-medium text-slate-900">Email</div>
+                                        <div class="text-sm text-slate-600">Send via email</div>
+                                    </div>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 border rounded-lg cursor-pointer hover:bg-slate-50">
+                                    <input type="checkbox" class="w-5 h-5 rounded" id="custom-notif-sms">
+                                    <div>
+                                        <div class="font-medium text-slate-900">SMS</div>
+                                        <div class="text-sm text-slate-600">Send via text message</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Timing</label>
+                            <select class="w-full px-4 py-3 border border-slate-300 rounded-lg" id="custom-notif-timing">
+                                <option>Instant</option>
+                                <option>15 minutes before</option>
+                                <option>30 minutes before</option>
+                                <option>1 hour before</option>
+                                <option>2 hours before</option>
+                                <option>24 hours before</option>
+                                <option>1 hour after</option>
+                                <option>24 hours after</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-900 mb-3">Message Template</label>
+                            <textarea class="w-full px-4 py-3 border border-slate-300 rounded-lg resize-none" rows="4" placeholder="Enter your custom message template..." id="custom-notif-message"></textarea>
+                        </div>
+
+                        <div class="flex gap-3 pt-4">
+                            <button onclick="createCustomNotification()" class="flex-1 px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all font-semibold">
+                                Create Notification
+                            </button>
+                            <button onclick="this.closest('.fixed').remove()" class="px-6 py-3 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-all font-semibold">
+                                Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Reinitialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        function createCustomNotification() {
+            const name = document.getElementById('custom-notif-name').value;
+            const type = document.getElementById('custom-notif-type').value;
+            const email = document.getElementById('custom-notif-email').checked;
+            const sms = document.getElementById('custom-notif-sms').checked;
+            const timing = document.getElementById('custom-notif-timing').value;
+
+            if (!name) {
+                alert('Please enter a notification name');
+                return;
+            }
+
+            if (!email && !sms) {
+                alert('Please select at least one delivery method');
+                return;
+            }
+
+            // Build details text
+            let details = [];
+            if (email) details.push('Email');
+            if (sms) details.push('SMS');
+            let detailsText = details.join(' & ') + ' • ' + timing;
+
+            // Create the notification ID
+            const notifId = 'custom-' + Date.now();
+
+            // Create the notification element
+            const notifElement = document.createElement('div');
+            notifElement.className = 'flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all fade-in';
+            notifElement.innerHTML = `
+                <div class="flex items-center gap-3 flex-1">
+                    <div class="custom-checkbox" onclick="toggleNotification(this, '${notifId}')">
+                        <i data-lucide="check" class="w-4 h-4 text-white"></i>
+                    </div>
+                    <div>
+                        <div class="font-medium text-slate-900">${name}</div>
+                        <div class="text-sm text-slate-600" id="${notifId}-details">${detailsText}</div>
+                    </div>
+                </div>
+                <button onclick="editNotification('${notifId}')" class="px-3 py-1.5 text-sm text-orange-600 hover:bg-orange-50 rounded-lg transition-all">
+                    <i data-lucide="settings" class="w-4 h-4"></i>
+                </button>
+            `;
+
+            // Add to appropriate section
+            const section = type === 'customer' ?
+                document.querySelector('#screen-setup-booking .mb-6:has(h3:contains("Customer"))') :
+                document.querySelector('#screen-setup-booking > div:has(h3:contains("Business"))');
+
+            // Find the container div with space-y-3 class in the appropriate section
+            const container = type === 'customer' ?
+                document.querySelector('#screen-setup-booking .mb-6 .space-y-3') :
+                document.querySelectorAll('#screen-setup-booking .space-y-3')[1];
+
+            if (container) {
+                container.appendChild(notifElement);
+            }
+
+            // Close modal
+            document.querySelector('.fixed.inset-0').remove();
+
+            // Reinitialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // Show success feedback
+            const notification = document.createElement('div');
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg fade-in z-50';
+            notification.textContent = 'Custom notification created!';
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
         }
 
         function markBookingStepComplete(stepNumber) {
